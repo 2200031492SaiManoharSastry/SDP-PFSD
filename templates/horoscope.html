@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="horoscope.css">
+  <script type="text/javascript" src="horoscope.js"></script>
+  <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.navbar {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+li.navbar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+li.navbar a:hover {
+    background-color: #555;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 600px) {
+    li.navbar {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+  </style>
+</head>
+<body>
+  
+  <header>
+    <nav>
+        <ul>
+            <li class="navbar"><a href="./adminhome">Home</a></li>
+            <li class="navbar"><a href="{% url 'about' %}">About</a></li>
+            <li class="navbar"><a href="{% url 'feedback' %}">Feedback</a></li>
+            <li class="navbar"><a href="{% url 'services' %}">services</a></li>
+            <li class="navbar"><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li class="navbar"><a href="{% url 'login' %}">Logout</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<div id="container">
+  <div id="header">
+    <h1 class="txtheader">what your horoscope says about you</h1>
+    <div id="img_horo"></div>
+  </div>
+  <div id="selectionarea">
+    <p><h3 id="txt">Please select your zodiac sign</h3></p>
+
+    <select id="horoscope" name="zodiac" onchange="selffunction()">
+      <option  value="default">Please select</option>
+      <option value="Aries">Aries (March 21 - April 19)</option>
+      <option value="Taurus">Taurus (April 20 - May 20)</option>
+      <option value="Gemini">Gemini (May 21 - June 20)</option>
+      <option value="Cancer">Cancer (June 21 - July 22)</option>
+      <option value="Leo">Leo (July 23 - August 22)</option>
+      <option value="Virgo">Virgo (August 23 - September 22)</option>
+      <option value="Libra">Libra (September 23 - October 22)</option>
+      <option value="Scorpio">Scorpio (October 23 - November 21)</option>
+      <option value="Sagittarius">Sagittarius (November 22 - December 21)</option>
+      <option value="Capricor">Capricorn (December 22 - January 19)</option>
+      <option value="Aquarius">Aquarius (January 20 - February 18)</option>
+      <option value="Pisces">Pisces (February 19 - March 20)</option>
+
+    </select>
+    <input  type="button" value="Restart" name="" onclick="window.location.reload()" id="restartbtn" style="visibility: hidden;">
+   </div>
+   <br>
+   <div id="horoscopetxt">
+     <h3 id="textrow1"></h3>
+     <textarea id="textrow2" style="margin:0px;width: 1208px; height: 366px;"  disabled></textarea>
+
+   </div>
+   <br>
+</div>
+<style>
+    body
+{
+  background: linear-gradient(to left,#2E23B2  40%,#070059  60%);
+}
+#container
+{
+  width:80%;
+  height: 700px;
+  font-size:   20px;
+  font-family: Arial Rounded MT;
+  background-color: linear-gradient(to left,#2E23B2  40%,#070059  60%);
+  color: white;
+  margin: auto;
+}
+#header
+{
+  height: 70px;
+  line-height: 70px;
+  font-family: Arial Rounded MT;
+  text-transform: uppercase;
+  color: whitesmoke;
+  text-align: center;
+  background: linear-gradient(to left,#2E23B2  40%,#070059  60%);
+}
+#selectarea
+{
+  padding-left: 20px;
+  font-weight: bolder;
+  color: chocolate;
+}
+#horoscopetxt
+{
+  height: 450px;
+  padding-right: 20px;
+  border-color: linear-gradient(to left,#2E23B2  40%,#070059  60%);
+  border-width: 1px;
+  border-style: solid;
+  color: white;
+  background:linear-gradient(to left,#820505  40%,#F24343  60%);
+}
+#textrow2
+{
+  font-size:   20px;
+  font-family: Arial Rounded MT;
+  background: linear-gradient(to left,#820505  40%,#F24343  60%);
+  color:white;
+  user-select: none;
+}
+
+#img_horo
+{
+  margin-right:150px;
+  height: 50px;
+  width: 50px;
+  top:50%;
+  left:-50%;
+  transform: translate(1800%,250%);
+}
+#horoscope
+{
+  font-size:   30px;
+  font-family: Arial Rounded MT;
+  text-transform: uppercase;
+  color:white;
+  background: #F24343;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,1);
+  border-radius: 20px;
+
+}
+#horoscope:hover
+{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.50)
+}
+#txt
+{
+  font-size:   20px;
+  font-family: Arial Rounded MT;
+  text-transform: uppercase;
+
+}
+#restartbtn
+{
+  float: right;
+  font-size:   30px;
+  font-family: Arial Rounded MT;
+  text-transform: uppercase;
+  color:white;
+  background: #820505;
+  border-radius: 20px;;
+  border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,1);
+}
+
+#restartbtn:hover
+{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,1);
+}
+
+.txtheader
+{
+  animation: color 1s infinite;
+}
+@keyframes color {
+      0%   {color: red;}
+      25%  {color: yellow;}
+      50%  {color: white;}
+      100% {color: green;}
+  }
+.button {
+
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #3498db;
+
+}
+
+
+</style>
+<script>
+  function selffunction()
+{
+  "use strict";
+
+  var textrowa,
+  randomresult,
+  result;
+
+
+  textrowa="Here is your Horoscope: ";
+  document.getElementById("textrow1").innerHTML=textrowa;
+  var hs=document.getElementById("horoscope").value;
+   var horo=["Element: Fire \nQuality: Cardinal \nColor: Red \nDay: Tuesday \nRuler: Mars\nGreatest Overall Compatibility: Libra, Leo \nLucky Numbers: 2, 36, 47 \nDate range: March 21 - April 19 \n\n\nStrengths: Courageous, determined, confident, enthusiastic, optimistic, honest, passionate\nWeaknesses: Impatient, moody, short-tempered, impulsive, aggressive\nAries likes: Comfortable clothes, taking on leadership roles, physical challenges, individual sports\nAries dislikes: Inactivity, delays, work that does not use one's talents.",
+          "Element: Earth\nQuality: Fixed\nColor: Green, Pink\nDay: Friday, Monday\nRuler: Venus\nGreatest Overall Compatibility: Scorpio, Cancer\nLucky Numbers: 2, 7, 9, 12, 24\nDate range: April 20 - May 20\n\n\nStrengths: Reliable, patient, practical, devoted, responsible, stable\nWeaknesses: Stubborn, possessive, uncompromising\nTaurus likes: Gardening, cooking, music, romance, high quality clothes, working with hands\nTaurus dislikes: Sudden changes, complications, insecurity of any kind, synthetic fabrics.",
+          "Element: Air\nQuality: Mutable\nColor: Light-Green, Yellow\nDay: Wednesday\nRuler: Mercury\nGreatest Overall Compatibility: Sagittarius, Aquarius\nLucky Numbers: 5, 7, 14, 23\nDate range: May 21 - June 20\n\n\nStrengths: Gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas\nWeaknesses: Nervous, inconsistent, indecisive\nGemini likes: Music, books, magazines, chats with nearly anyone, short trips around the town\nGemini dislikes: Being alone, being confined, repetition and routine.",
+          "Element: Water\nQuality: Cardinal\nColor: White\nDay: Monday, Thursday\nRuler: Moon\nGreatest Overall Compatibility: Capricorn, Taurus\nLucky Numbers: 2, 3, 15, 20\nDate range: June 21 - July 22\n\n\nStrengths: Tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive\nWeaknesses: Moody, pessimistic, suspicious, manipulative, insecure\nCancer likes: Art, home-based hobbies, relaxing near or in water, helping loved ones, a good meal with friends\nCancer dislikes: Strangers, any criticism of Mom, revealing of personal life.",
+          "Element: Fire\nQuality: Fixed\nColor: Gold, Yellow, Orange\nDay: Sunday\nRuler: Sun\nGreatest Overall Compatibility: Aquarius, Gemini\nLucky Numbers: 1, 3, 10, 19\nDate range: July 23 - August 22\n\n\nStrengths: Creative, passionate, generous, warm-hearted, cheerful, humorous\nWeaknesses: Arrogant, stubborn, self-centered, lazy, inflexible\nLeo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends\nLeo dislikes: Being ignored, facing difficult reality, not being treated like a king or queen.",
+          "Element: Earth\nQuality: Mutable\nColor: Grey, Beige, Pale-Yellow\nDay: Wednesday\nRuler: Mercury\nGreatest Overall Compatibility: Pisces, Cancer\nLucky Numbers: 5, 14, 15, 23, 32\nDate range: August 23 - September 22\n\n\nStrengths: Loyal, analytical, kind, hardworking, practical\nWeaknesses: Shyness, worry, overly critical of self and others, all work and no play\nVirgo likes: Animals, healthy food, books, nature, cleanliness\nVirgo dislikes: Rudeness, asking for help, taking center stage.",
+          "Element: Air\nQuality: Cardinal\nColor: Pink, Green\nDay: Friday\nRuler: Venus\nGreatest Overall Compatibility: Aries, Sagittarius\nLucky Numbers: 4, 6, 13, 15, 24\nDate range: September 23 - October 22\n\n\nStrengths: Cooperative,diplomatic, gracious, fair-minded, social\nWeaknesses: Indecisive, avoids confrontations, will carry a grudge, self-pity\nLibra likes: Harmony, gentleness, sharing with others, the outdoors\nLibra dislikes: Violence, injustice, loudmouths, conformity.","Element: Water\nQuality: Fixed\nColor: Scarlet, Red, Rust\nDay: Tuesday\nRuler: Pluto, Mars\nGreatest Overall Compatibility: Taurus, Cancer\nLucky Numbers: 8, 11, 18, 22\nDate range: October 23 - November 21\n\n\nStrengths: Resourceful, brave, passionate, stubborn, a true friend\nWeaknesses: Distrusting, jealous, secretive, violent\nScorpio likes: Truth, facts, being right, longtime friends, teasing, a grand passion\nScorpio dislikes: Dishonesty, revealing secrets, passive people.",
+         "Element: Fire\nQuality: Mutable\nColor: Blue\nDay: Thursday\nRuler: Jupiter\nGreatest Overall Compatibility: Gemini, Aries\nLucky Numbers: 3, 7, 9, 12, 21\nDate range: November 22 - December 21\n\n\nStrengths: Generous, idealistic, great sense of humor\nWeaknesses: Promises more than can deliver, very impatient, will say anything no matter how undiplomatic\nSagittarius likes: Freedom, travel, philosophy, being outdoors\nSagittarius dislikes: Clingy people, being constrained, off-the-wall theories, details.",
+           "Element: Earth\nQuality: Cardinal\nColor: Brown, Black\nDay: Saturday\nRuler: Saturn\nGreatest Overall Compatibility: Taurus, Cancer\nLucky Numbers: 4, 8, 13, 22\nDate range: December 22 - January 19\n\n\nStrengths: Responsible, disciplined, self-control, good managers\nWeaknesses: Know-it-all, unforgiving, condescending, expecting the worst\nCapricorn likes: Family, tradition, music, understated status, quality craftsmanship\nCapricorn dislikes: Almost everything at some point.",
+           "Element: Air\nQuality: Fixed\nColor: Light-Blue, Silver\nDay: Saturday\nRuler: Uranus, Saturn\nGreatest Overall Compatibility: Leo, Sagittarius\nLucky Numbers: 4, 7, 11, 22, 29\nDate range: January 20 - February 18\n\n\nStrengths: Progressive, original, independent, humanitarian\nWeaknesses: Runs from emotional expression, temperamental, uncompromising, aloof\nAquarius likes: Fun with friends, helping others, fighting for causes, intellectual conversation, a good listener\nAquarius dislikes: Limitations, broken promises, being lonely, dull or boring situations, people who disagree with them.",
+           "Element: Water\nQuality: Mutable\nColor: Mauve, Lilac, Purple, Violet, Sea green\nDay: Thursday\nRuler: Neptune, Jupiter\nGreatest Overall Compatibility: Virgo, Taurus\nLucky Numbers: 3, 9, 12, 15, 18, 24\nDate range: February 19 - March 20\n\n\nStrengths: Compassionate, artistic, intuitive, gentle, wise, musical\nWeaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr\nPisces likes: Being alone, sleeping, music, romance, visual media, swimming, spiritual themes\nPisces dislikes: Know-it-all, being criticized, the past coming back to haunt, cruelty of any kind."
+
+
+       ];
+        var src=["Aries.png","Taurus.png","Gemini.png","Cancer.png","Leo.png","Virgo.png","Libra.png","Scorpio.png","Sagittarius.png","Capricor.png","Aquarius.png","Pisces.png","hs.png"];
+
+
+
+
+  if(hs=="Aries")
+  {
+
+       var re=horo[0];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+
+  }
+  else if(hs=="Taurus")
+  {
+    var re=horo[1];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Gemini")
+  {
+    var re=horo[2];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Cancer")
+  {
+    var re=horo[3];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Leo")
+  {
+    var re=horo[4];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Virgo")
+  {
+    var re=horo[5];
+         result=re;
+         var img = document.createElement('img');
+  document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Libra")
+  {
+    var re=horo[6];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Scorpio")
+  {
+    var re=horo[7];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Sagittarius")
+  {
+    var re=horo[8];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Capricor")
+  {
+    var re=horo[9];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Aquarius")
+  {
+    var re=horo[10];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+  else if(hs=="Pisces")
+  {
+    var re=horo[11];
+         result=re;
+         var img = document.createElement('img');
+
+         document.getElementById('img_horo').appendChild(img);
+  }
+
+  document.getElementById("textrow2").innerHTML=result;
+  document.getElementById("restartbtn").style.visibility="visible";
+}
+</script>
+
+
+<div class="button">
+<a href="{% url 'login' %}">Logout</a>   </div>
+</body>
+</html>

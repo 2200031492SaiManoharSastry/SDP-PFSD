@@ -1,0 +1,105 @@
+/* Reset some default styles for better consistency */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+header {
+    background-color: #111;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.background-image {
+    background-image: url('https://previews.123rf.com/images/tutsi925/tutsi9252006/tutsi925200600054/149064133-zodiac-background-sagittarius-zodiac-sign-horizontal-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+.registration {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    max-width: 400px; /* Adjust the width as needed */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #111;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+    background-color: #ffdd33;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* You can add more styling and effects to make it more attractive and creative. */

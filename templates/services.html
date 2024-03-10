@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Place the video background behind the content */
+      }
+
+      .video-background video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space;
+        align-items: center;
+        height: 80vh;
+      }
+
+      .untoldcoding {
+        margin: 20px;
+      }
+
+      .img-container img {
+        max-width: 100%;
+      }
+
+      body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.navbar {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+li.navbar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+li.navbar a:hover {
+    background-color: #555;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 600px) {
+    li.navbar {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+    </style>
+  </head>
+  <body>
+    
+    <header>
+      <nav>
+          <ul>
+              <li class="navbar"><a href="./adminhome">Home</a></li>
+              <li class="navbar"><a href="{% url 'about' %}">About</a></li>
+              <li class="navbar"><a href="{% url 'feedback' %}">Feedback</a></li>
+              <li class="navbar"><a href="{% url 'services' %}">services</a></li>
+              <li class="navbar"><a href="{% url 'contact' %}">Contact Us</a></li>
+              <li class="navbar"><a href="{% url 'login' %}">Logout</a></li>
+
+          </ul>
+      </nav>
+  </header>
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source src="{% static 'resources/Horoscope2.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="container">
+      <div class="untoldcoding">
+        <div class="img-container">
+          <img src="https://cdn.britannica.com/45/104045-050-116C1F93/Signs-of-the-Zodiac-astrology.jpg" alt="" />
+        </div>
+
+        <div class="untoldcoding-details">
+          <h3><a class="horoscope-link" href="{% url 'dailyhoroscope' %}" target="_blank">Zodiac signs</a></h3>
+          <p>Get your Zodiac Signs according to Date Of Birth.Zodiac signs are astrological symbols associated with a person's birth date, representing their personality traits and characteristics. There are 12 zodiac signs, each with unique attributes and qualities.</p>
+        </div>
+      </div>
+
+      <div class="untoldcoding">
+        <div class="img-container">
+          <img src="https://media.vogue.in/wp-content/uploads/2021/12/Daily-Horoscope-1920x1080.jpg" alt="" />
+        </div>
+        <div class="untoldcoding-details">
+          <h3><a class="horoscope-link" href="{% url 'horoscope' %}" target="_blank">Daily Horoscope</a></h3>
+          <p>Get your daily horoscope readings and predictions.Daily horoscopes provide short astrological predictions based on your zodiac sign, offering insights into potential challenges and opportunities for the day ahead, but their accuracy and scientific validity are often debated.</p>
+        </div>
+      </div>
+
+    <div class="container"></div>
+      <div class="untoldcoding">
+        <div class="img-container">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1286865195.jpg?resize=1200:*" alt="" />
+        </div>
+        <div class="untoldcoding-details">
+          <h3><a class="horoscope-link" href="{% url 'input' %}" target="_blank">Rashi Chart</a></h3>
+          <p>An astrology chart, also called a birth chart or natal chart, is a snapshot of the positions of the planets at the time, day, and place of your birth. It contains information about the energies you came in contact with at the time of your birth. 
+          </p>
+        </div>
+      </div>
+
+      <div class="untoldcoding">
+          <div class="img-container">
+            <img src="https://whiteandpinklotus.files.wordpress.com/2019/07/nakshatra-chart.jpg" alt="" />
+          </div>
+          <div class="untoldcoding-details">
+            <h3><a class="horoscope-link" href="{% url 'nakshatra' %}" target="_blank">Nakshatra</a></h3>
+            <p>An astrology chart, also called a birth chart or natal chart, is a snapshot of the positions of the planets at the time, day, and place of your birth. It contains information about the energies you came in contact with at the time of your birth. 
+            </p>
+          </div>  
+      </div>
+  </body>
+</html>

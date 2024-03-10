@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+    <style>
+        /* Add your CSS code here */
+        /* Reset some default styles for better consistency */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #111;
+            padding: 20px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            font-size: 18px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .background-image {
+            background-image: url('https://previews.123rf.com/images/tutsi925/tutsi9252006/tutsi925200600054/149064133-zodiac-background-sagittarius-zodiac-sign-horizontal-banner.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .registration {
+            background-color: rgba(0, 0, 0, 0.7); /* Use rgba for background color with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            color: #fff;
+            max-width: 400px; /* Adjust the width as needed */
+            margin: auto; /* Center the div horizontally */
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input[type="text"],
+        form input[type="password"] {
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            font-size: 16px;
+        }
+
+        form input[type="submit"],
+        form input[type="reset"] {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #111;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover,
+        form input[type="reset"]:hover {
+            background-color: #ffdd33;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+    <title>Registration - Astrology Prediction System</title>
+</head>
+<h2 align="center" style="color:red">{{msg}}</h2><br>
+<body>
+
+    <main>
+        <div class="background-image">
+            <div class="registration">
+                <h1>Registration</h1>
+                <form method="POST" action="{% url 'registration' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear">
+                </form>
+                <br>
+                <br>
+                <p>Already have an account? <a href="{% url 'login' %}" style="color: white;">Login here</a></p>
+            </div>
+        </div>
+    </main>
+   <footer>
+    <nav>
+        <ul>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#privacypolicy">Privacy Policy</a></li>
+            <li><a href="#otherpolicy">Other Policy</a></li>
+        </ul>
+    </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+
+   <title>Sign Prediction</title>
+   <style>
+      body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.navbar {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+li.navbar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+li.navbar a:hover {
+    background-color: #555;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 600px) {
+    li.navbar {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+   </style>
+</head>
+<body>
+   
+   <header>
+      <nav>
+          <ul>
+              <li class="navbar"><a href="./adminhome">Home</a></li>
+              <li class="navbar"><a href="{% url 'about' %}">About</a></li>
+              <li class="navbar"><a href="{% url 'feedback' %}">Feedback</a></li>
+              <li class="navbar"><a href="{% url 'services' %}">services</a></li>
+              <li class="navbar"><a href="{% url 'contact' %}">Contact Us</a></li>
+              <li class="navbar"><a href="{% url 'login' %}">Logout</a></li>
+
+          </ul>
+      </nav>
+  </header>
+
+   <script>
+      function determineAstrologicalSign() {
+         const day = parseInt(prompt("Input birthday DATE: "));
+         const month = prompt("Input month of birth (e.g. march, july etc):").toLowerCase();
+         let astro_sign = '';
+
+         if (month === 'december') {
+            astro_sign = day < 22 ? 'Sagittarius(ధనుస్సు)' : 'Capricorn(మకరం)';
+         } else if (month === 'january') {
+            astro_sign = day < 20 ? 'Capricorn(మకరం)' : 'Aquarius(కుంభం)';
+         } else if (month === 'february') {
+            astro_sign = day < 19 ? 'Aquarius(కుంభం)' : 'Pisces(మీనం)';
+         } else if (month === 'march') {
+            astro_sign = day < 21 ? 'Pisces(మీనం)' : 'Aries(మేషం)';
+         } else if (month === 'april') {
+            astro_sign = day < 20 ? 'Aries(మేషం)' : 'Taurus(వృషభం)';
+         } else if (month === 'may') {
+            astro_sign = day < 21 ? 'Taurus(వృషభం)' : 'Gemini(మిథునం)';
+         } else if (month === 'june') {
+            astro_sign = day < 21 ? 'Gemini(మిథునం)' : 'Cancer(కర్కాటకం)';
+         } else if (month === 'july') {
+            astro_sign = day < 23 ? 'Cancer(కర్కాటకం)' : 'Leo(సింహం)';
+         } else if (month === 'august') {
+            astro_sign = day < 23 ? 'Leo(సింహం)' : 'Virgo(కన్యా)';
+         } else if (month === 'september') {
+            astro_sign = day < 23 ? 'Virgo(కన్యా)' : 'Libra(తులాం)';
+         } else if (month === 'october') {
+            astro_sign = day < 23 ? 'Libra(తులాం)' : 'Scorpio(వృశ్చికం)';
+         } else if (month === 'november') {
+            astro_sign = day < 22 ? 'Scorpio(వృశ్చికం)' : 'Sagittarius(ధనుస్సు)';
+         }
+
+         alert("Your Astrological sign is: " + astro_sign);
+      }
+      determineAstrologicalSign();
+   </script>
+<style>
+.horoscope
+   {
+   margin-top=50%;
+
+
+   }
+
+</style>
+   <center>
+   <div class="horoscope">
+<b><h1><a href="#" align="center">Horoscope</a></h1></b>
+      </div>
+      </center>
+<style>
+background: linear-gradient(#afeeee, #f08080);
+
+</style>
+
+</body>
+</html>

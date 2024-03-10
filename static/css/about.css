@@ -1,0 +1,81 @@
+/* Reset default browser styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and text color for the entire page */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header and navigation */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: right;
+    padding: 20px;
+}
+
+
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style main content section */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style headings */
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Style paragraphs */
+p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: black;
+}
+
+/* FAQ section styles */
+h2 {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+
+
+/* Style your links */
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Add more styles as needed to customize your website */

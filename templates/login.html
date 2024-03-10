@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'css/lock.css' %}">
+    <title>Astrology Prediction System</title>
+</head>
+<body>
+
+    <main>
+        <div class="background-image">
+           <div class="login">
+            <h1>Login</h1>
+            <form method="post" action="{% url 'checkadminlogin' %}">
+                {% csrf_token %}
+                <label class="username">Username:</label>
+                <input type="text" id="username" name="rid" placeholder="Enter your username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="rpwd" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+                <br>
+                <p>Forget Password ?  <a href="{% url 'forget' %}">Clickhere</a></p>
+                <p>Don't have account  <a href="{% url 'registration' %}">Register here</a></p>
+             </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#privacypolicy">Privacy Policy</a></li>
+            <li><a href="#otherpolicy">Other Policy</a></li>
+        </ul>
+    </nav>
+    </footer>
+</body>
+</html>

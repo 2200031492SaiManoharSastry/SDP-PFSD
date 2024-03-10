@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasichart</title>
+    <style>
+        body {
+            
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Add additional styles as needed */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.navbar {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+li.navbar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+li.navbar a:hover {
+    background-color: #555;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 600px) {
+    li.navbar {
+        display: block;
+        margin: 10px 0;
+    }
+}
+ 
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li class="navbar"><a href="./adminhome">Home</a></li>
+                <li class="navbar"><a href="{% url 'about' %}">About</a></li>
+                <li class="navbar"><a href="{% url 'feedback' %}">Feedback</a></li>
+                <li class="navbar"><a href="{% url 'services' %}">services</a></li>
+                <li class="navbar"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="navbar"><a href="{% url 'login' %}">Logout</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <form method="POST" action="{% url 'rasi' %}">
+        {% csrf_token %}
+        <input type="number"  name="date"   placeholder="Date"  required/>
+        <input type="number"  name="month" placeholder="Month" required/>
+        <input type="number"  name="year" placeholder="Year" required/>
+        <input type="number"  name="hours" placeholder="Hours" required/>
+        <input type="number"  name="minutes" placeholder="Minutes" required/>
+        <input type="submit" name="Generate" />
+    </form>
+    <div align="center">
+    {% if svg_data %}
+        <!-- Render the SVG data as an image -->
+        <div>
+            {{ svg_data | safe }}
+        </div>
+    {% endif %}
+    </div>
+
+</body>
+</html>
